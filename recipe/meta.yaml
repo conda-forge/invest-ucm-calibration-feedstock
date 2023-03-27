@@ -1,5 +1,5 @@
 {% set name = "invest-ucm-calibration" %}
-{% set version = "0.5.0" %}
+{% set version = "0.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/invest-ucm-calibration-{{ version }}.tar.gz
-  sha256: 175244e58b3542775460a62662db4c82ce88ead3df769cdb3e30333da822f671
+  sha256: 3fe5a0ee19495ce1642e022acc969a83f6558cb984b14af72ba588c15bdb352e
 
 build:
   entry_points:
@@ -22,11 +22,11 @@ requirements:
     - pip
   run:
     - python >=3.6
-    - dask-core
     - fire
     - fiona >=1.0.0
     - natcap.invest >=3.11.0
     - rasterio >=1.0.0
+    - rioxarray
     - scikit-learn >=1.0.0
     - simanneal >=0.5.0
     - xarray
