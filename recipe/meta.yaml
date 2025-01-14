@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/invest-ucm-calibration-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/invest-ucm-calibration-{{ version }}.tar.gz
   sha256: 3fe5a0ee19495ce1642e022acc969a83f6558cb984b14af72ba588c15bdb352e
 
 build:
@@ -14,14 +14,14 @@ build:
     - invest-ucm-calibration=invest_ucm_calibration.cli.main:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - fire
     - fiona >=1.0.0
     - natcap.invest >=3.11.0
@@ -39,6 +39,7 @@ test:
     - invest-ucm-calibration --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/martibosch/invest-ucm-calibration
